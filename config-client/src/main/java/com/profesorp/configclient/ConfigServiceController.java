@@ -22,7 +22,7 @@ public class ConfigServiceController {
 	@Autowired
 	private ConfigurationData configurationData;
 
-	@GetMapping("/limites")
+	@GetMapping("/configuration-bean")
 	public BeanConfiguration getConfiguracion()
 	{
 		return new BeanConfiguration(configuration.getMinimum(),
@@ -30,13 +30,13 @@ public class ConfigServiceController {
 	}
 	
 	
-	@GetMapping("/refrescado")
+	@GetMapping("/configuration-value")
 	public BeanConfiguration getConfiguracionRefrescada(@Value("${valores.valor_funcion}") String valorFuncion)
 	{
 		return new BeanConfiguration(configuration.getMinimum(),
 				configuration.getMaximum(),valorFijo,valorFuncion);
 	}
-	@GetMapping("/datos")
+	@GetMapping("/configuration-properties")
 	public ConfigurationData retrieveDatosFromConfigurations() {
 		return configurationData;
 	}
